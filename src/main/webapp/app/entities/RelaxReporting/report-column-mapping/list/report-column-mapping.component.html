@@ -1,0 +1,133 @@
+<div>
+  <h2 id="page-heading" data-cy="ReportColumnMappingHeading">
+    <span jhiTranslate="relaxReportingApp.relaxReportingReportColumnMapping.home.title">Report Column Mappings</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="relaxReportingApp.relaxReportingReportColumnMapping.home.refreshListLabel">Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-report-column-mapping"
+        [routerLink]="['/relaxreporting/report-column-mapping/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="relaxReportingApp.relaxReportingReportColumnMapping.home.createLabel">Create a new Report Column Mapping</span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  @if (reportColumnMappings?.length === 0) {
+    <div class="alert alert-warning" id="no-result">
+      <span jhiTranslate="relaxReportingApp.relaxReportingReportColumnMapping.home.notFound">No Report Column Mappings found</span>
+    </div>
+  }
+
+  @if (reportColumnMappings && reportColumnMappings.length > 0) {
+    <div class="table-responsive table-entities" id="entities">
+      <table class="table table-striped" aria-describedby="page-heading">
+        <thead>
+          <tr jhiSort [sortState]="sortState" (sortChange)="navigateToWithComponentValues($event)">
+            <th scope="col" jhiSortBy="id">
+              <div class="d-flex">
+                <span jhiTranslate="global.field.id">ID</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="sourceColumnName">
+              <div class="d-flex">
+                <span jhiTranslate="relaxReportingApp.relaxReportingReportColumnMapping.sourceColumnName">Source Column Name</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="sourceColumnIndex">
+              <div class="d-flex">
+                <span jhiTranslate="relaxReportingApp.relaxReportingReportColumnMapping.sourceColumnIndex">Source Column Index</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="columnTitle">
+              <div class="d-flex">
+                <span jhiTranslate="relaxReportingApp.relaxReportingReportColumnMapping.columnTitle">Column Title</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="lang">
+              <div class="d-flex">
+                <span jhiTranslate="relaxReportingApp.relaxReportingReportColumnMapping.lang">Lang</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="report.id">
+              <div class="d-flex">
+                <span jhiTranslate="relaxReportingApp.relaxReportingReportColumnMapping.report">Report</span>
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (reportColumnMapping of reportColumnMappings; track trackId) {
+            <tr data-cy="entityTable">
+              <td>
+                <a [routerLink]="['/relaxreporting/report-column-mapping', reportColumnMapping.id, 'view']">{{ reportColumnMapping.id }}</a>
+              </td>
+              <td>{{ reportColumnMapping.sourceColumnName }}</td>
+              <td>{{ reportColumnMapping.sourceColumnIndex }}</td>
+              <td>{{ reportColumnMapping.columnTitle }}</td>
+              <td>{{ reportColumnMapping.lang }}</td>
+              <td>
+                @if (reportColumnMapping.report) {
+                  <div>
+                    <a [routerLink]="['/relaxreporting/report', reportColumnMapping.report.id, 'view']">{{
+                      reportColumnMapping.report.id
+                    }}</a>
+                  </div>
+                }
+              </td>
+              <td class="text-end">
+                <div class="btn-group">
+                  <a
+                    [routerLink]="['/relaxreporting/report-column-mapping', reportColumnMapping.id, 'view']"
+                    class="btn btn-info btn-sm"
+                    data-cy="entityDetailsButton"
+                  >
+                    <fa-icon icon="eye"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                  </a>
+
+                  <a
+                    [routerLink]="['/relaxreporting/report-column-mapping', reportColumnMapping.id, 'edit']"
+                    class="btn btn-primary btn-sm"
+                    data-cy="entityEditButton"
+                  >
+                    <fa-icon icon="pencil-alt"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                  </a>
+
+                  <button type="submit" (click)="delete(reportColumnMapping)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                    <fa-icon icon="times"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  }
+</div>

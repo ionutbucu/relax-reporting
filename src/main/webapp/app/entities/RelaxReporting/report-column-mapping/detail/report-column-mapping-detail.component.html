@@ -1,0 +1,62 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (reportColumnMapping()) {
+      <div>
+        <h2 data-cy="reportColumnMappingDetailsHeading">
+          <span jhiTranslate="relaxReportingApp.relaxReportingReportColumnMapping.detail.title">Report Column Mapping</span>
+        </h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ reportColumnMapping()!.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="relaxReportingApp.relaxReportingReportColumnMapping.sourceColumnName">Source Column Name</span></dt>
+          <dd>
+            <span>{{ reportColumnMapping()!.sourceColumnName }}</span>
+          </dd>
+          <dt><span jhiTranslate="relaxReportingApp.relaxReportingReportColumnMapping.sourceColumnIndex">Source Column Index</span></dt>
+          <dd>
+            <span>{{ reportColumnMapping()!.sourceColumnIndex }}</span>
+          </dd>
+          <dt><span jhiTranslate="relaxReportingApp.relaxReportingReportColumnMapping.columnTitle">Column Title</span></dt>
+          <dd>
+            <span>{{ reportColumnMapping()!.columnTitle }}</span>
+          </dd>
+          <dt><span jhiTranslate="relaxReportingApp.relaxReportingReportColumnMapping.lang">Lang</span></dt>
+          <dd>
+            <span>{{ reportColumnMapping()!.lang }}</span>
+          </dd>
+          <dt><span jhiTranslate="relaxReportingApp.relaxReportingReportColumnMapping.report">Report</span></dt>
+          <dd>
+            @if (reportColumnMapping()!.report) {
+              <div>
+                <a [routerLink]="['/relaxreporting/report', reportColumnMapping()!.report?.id, 'view']">{{
+                  reportColumnMapping()!.report?.id
+                }}</a>
+              </div>
+            }
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+        </button>
+
+        <button
+          type="button"
+          [routerLink]="['/relaxreporting/report-column-mapping', reportColumnMapping()!.id, 'edit']"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

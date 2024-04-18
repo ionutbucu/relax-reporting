@@ -17,7 +17,21 @@
     <property name="datetimeType" value="datetime(6)" dbms="mysql"/>
 
     <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20240418155957_added_entity_Report.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20240418155958_added_entity_ReportParam.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20240418155959_added_entity_ReportDataSource.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20240418160000_added_entity_ReportMetadata.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20240418160001_added_entity_ReportSchedule.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20240418160002_added_entity_ReportDistribution.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20240418160003_added_entity_ReportExecution.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20240418160004_added_entity_ReportColumnMapping.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="config/liquibase/changelog/20240418155957_added_entity_constraints_Report.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20240418155958_added_entity_constraints_ReportParam.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20240418160001_added_entity_constraints_ReportSchedule.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20240418160002_added_entity_constraints_ReportDistribution.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20240418160003_added_entity_constraints_ReportExecution.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20240418160004_added_entity_constraints_ReportColumnMapping.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
     <!-- jhipster-needle-liquibase-add-incremental-changelog - JHipster will add incremental liquibase changelogs here -->
 </databaseChangeLog>

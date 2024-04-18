@@ -1,0 +1,9 @@
+{
+  "relaxReportingApp": {
+    "QueryType": {
+      "null": "",
+      "NATIVE_QUERY": "NATIVE_QUERY",
+      "HQL": "HQL"
+    }
+  }
+}

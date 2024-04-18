@@ -1,0 +1,38 @@
+{
+  "annotations": {
+    "changelogDate": "20240418160002"
+  },
+  "applications": "*",
+  "clientRootFolder": "RelaxReporting",
+  "databaseType": "sql",
+  "documentation": "not an ignored comment",
+  "dto": "mapstruct",
+  "fields": [
+    {
+      "fieldName": "email",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "minlength", "pattern"],
+      "fieldValidateRulesMinlength": "3",
+      "fieldValidateRulesPattern": "^[^@]+@[^@]+$"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "256"
+    }
+  ],
+  "microserviceName": "RelaxReporting",
+  "name": "ReportDistribution",
+  "relationships": [
+    {
+      "otherEntityName": "report",
+      "otherEntityRelationshipName": "distributions",
+      "relationshipName": "report",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceClass"
+}
