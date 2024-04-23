@@ -1,0 +1,36 @@
+{
+  "annotations": {
+    "changelogDate": "20240423095312"
+  },
+  "applications": "*",
+  "clientRootFolder": "RelaxReporting",
+  "databaseType": "sql",
+  "dto": "mapstruct",
+  "fields": [
+    {
+      "fieldName": "rid",
+      "fieldType": "String",
+      "options": {
+        "id": true
+      }
+    },
+    {
+      "fieldName": "metadata",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "text"
+    }
+  ],
+  "microserviceName": "RelaxReporting",
+  "name": "ReportMetadata",
+  "relationships": [
+    {
+      "otherEntityName": "report",
+      "otherEntityRelationshipName": "metadata",
+      "relationshipName": "report",
+      "relationshipSide": "right",
+      "relationshipType": "one-to-one"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceClass"
+}
