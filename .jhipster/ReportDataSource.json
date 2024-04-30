@@ -1,0 +1,47 @@
+{
+  "annotations": {
+    "changelogDate": "20240423095311"
+  },
+  "applications": "*",
+  "clientRootFolder": "RelaxReporting",
+  "databaseType": "sql",
+  "dto": "mapstruct",
+  "fields": [
+    {
+      "fieldName": "rid",
+      "fieldType": "String",
+      "options": {
+        "id": true
+      }
+    },
+    {
+      "fieldName": "type",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "url",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "user",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "password",
+      "fieldType": "String"
+    }
+  ],
+  "microserviceName": "RelaxReporting",
+  "name": "ReportDataSource",
+  "relationships": [
+    {
+      "otherEntityName": "report",
+      "otherEntityRelationshipName": "datasource",
+      "relationshipName": "report",
+      "relationshipSide": "right",
+      "relationshipType": "one-to-one"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceClass"
+}

@@ -1,0 +1,37 @@
+{
+  "annotations": {
+    "changelogDate": "20240423095313"
+  },
+  "applications": "*",
+  "clientRootFolder": "RelaxReporting",
+  "databaseType": "sql",
+  "dto": "mapstruct",
+  "fields": [
+    {
+      "fieldName": "rid",
+      "fieldType": "String",
+      "options": {
+        "id": true
+      }
+    },
+    {
+      "fieldName": "cron",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": "20"
+    }
+  ],
+  "microserviceName": "RelaxReporting",
+  "name": "ReportSchedule",
+  "relationships": [
+    {
+      "otherEntityName": "report",
+      "otherEntityRelationshipName": "schedules",
+      "relationshipName": "report",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceClass"
+}
